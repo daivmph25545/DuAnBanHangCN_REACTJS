@@ -1,0 +1,16 @@
+import { Outlet } from "react-router-dom"
+import UserHeader from "./header"
+import Banner from "./slider"
+import UserFooter from "./footer"
+
+const UserLayout = () => {
+    return <div>
+        <UserHeader/>
+        <Banner/>
+        {/* Content */}
+        <Outlet/>
+        <UserFooter/>
+    </div>
+}
+
+export default UserLayout
