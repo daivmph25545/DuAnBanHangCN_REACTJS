@@ -1,36 +1,22 @@
 import { useParams } from "react-router-dom"
-import { getById } from "../api/products"
 import { useEffect, useState } from "react"
 import { IProduct } from "../models"
 
 const ProductDetail = () => {
-    const [products, setProducts] = useState<IProduct>({} as IProduct)
-    const { id } = useParams()
-
-    const fetchProducts = async () => {
-        if (id) {
-            const { data } = await getById(id)
-            setProducts(data)
-        }
-
-    }
-    useEffect(() => {
-        fetchProducts()
-    }, [])
-
+   
 
     return <div>
         <section className="text-gray-700 body-font overflow-hidden bg-white">
             <div className="container px-5 py-10 mx-auto">
                 <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                    <img src={products.images?.[0].base_url} alt="" className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" />
+                    {/* <img src={products.images?.[0].base_url} alt="" className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200" /> */}
                     <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                         <div className="pb-2">
-                            <span className="title-font font-medium text-[30px] pr-4 text-[#D70018]">{products.price} ₫</span>
-                            <span className="title-font font-medium text-[19px] line-through text-[#707070]">{products.original_price} ₫</span>
+                            {/* <span className="title-font font-medium text-[30px] pr-4 text-[#D70018]">{products.price} ₫</span>
+                            <span className="title-font font-medium text-[19px] line-through text-[#707070]">{products.original_price} ₫</span> */}
                         </div>
-                        <h2 className="text-sm title-font text-gray-500 tracking-widest">{products.brand?.name}</h2>
-                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{products.name}</h1>
+                        {/* <h2 className="text-sm title-font text-gray-500 tracking-widest">{products.brand?.name}</h2>
+                        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{products.name}</h1> */}
                         <div className="flex mb-4">
                             <span className="flex items-center">
                                 <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
@@ -106,10 +92,10 @@ const ProductDetail = () => {
                 </div>
                 <h1 className="text-[30px] font-medium font-[Roboto] pl-[100px] pt-4">Sản Phẩm Tương Tự</h1>
                 <div className="flex pl-[140px] py-5 gap-3">
-                    <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md " />
+                    {/* <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md " />
                     <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md" />
                     <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md" />
-                    <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md" />
+                    <img src={products.images?.[0].base_url} alt="" className="w-[100px] rounded-md" /> */}
                 </div>
             </div>
         </section>
@@ -121,7 +107,7 @@ const ProductDetail = () => {
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Cấu hình Galaxy A73 5G được nâng cấp mạnh với chip Snapdragon 778G, RAM lên đến 8 GB</p>
                 <p className="text-[#444444] text-[19px] py-[3px] pl-[50px]">Chiến game thoải mái không lo gián đoạn - Viên pin lớn 5000 mAh, hỗ trợ sạc nhanh 25 W</p>
             </div>
-            <div className="text-[20px] font-medium text-justify" dangerouslySetInnerHTML={{ __html: (products.description)?.substring(0,4000) }}></div>
+            {/* <div className="text-[20px] font-medium text-justify" dangerouslySetInnerHTML={{ __html: (products.description)?.substring(0,4000) }}></div> */}
                <div className="mt-[50px] ml-[650px]"> 
                <button className="w-[400px] h-[50px] border-2 font-medium text-[20px] border-black rounded-[10px] ">Xem Thêm</button>
                </div>

@@ -3,34 +3,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom';
 import { SigninForm, signinSchema } from '../models';
-import { signin } from '../api/auth';
-import { useLocalStorage } from '../hook';
 
 
 
 const Signin = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<SigninForm>({
-        resolver: yupResolver(signinSchema)
-    })
+   
 
     const navigate = useNavigate()
 
-    const [user, setUser] = useLocalStorage("user", null)
+   
 
-    const onSubmit = async (data: SigninForm) => {
-        try {
-            const {data: {accessToken, user}} = await signin(data)
-            setUser({
-                accessToken,
-                ...user
-            })
-            navigate('/')
-
-        } catch (error) {
-            console.log(error);
-
-        }
-    }
+   
 
 
 
@@ -74,18 +57,17 @@ const Signin = () => {
                         </h1>
 
 
-                        <form action="#" className="mt-8 grid grid-cols-6 gap-6" onSubmit={handleSubmit(onSubmit)}>
+                        {/* <form action="#" className="mt-8 grid grid-cols-6 gap-6" onSubmit={handleSubmit(onSubmit)}> */}
                             <div className="col-span-6">
                                 <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
                                     Email
                                 </label>
 
                                 <input
-                                    {...register('email')}
+                                 
                                     className="mt-1 w-full rounded-md h-[35px] border-2 border-black bg-white text-sm text-gray-700 shadow-sm"
                                 />
                                 <p className='text-red-500 text-[20px] font-medium mt-2'>
-                                    {errors.email && errors.email.message}
                                 </p>
                             </div>
 
@@ -99,11 +81,9 @@ const Signin = () => {
 
                                 <input
                                     type="password"
-                                    {...register('password')}
                                     className="mt-1 w-full rounded-md h-[35px] border-2 border-black  bg-white text-sm text-gray-700 shadow-sm"
                                 />
                                 <p className='text-red-500 text-[20px] font-medium mt-2'>
-                                    {errors.password && errors.password.message}
                                 </p>
                             </div>
 
@@ -120,7 +100,7 @@ const Signin = () => {
                                     <a href="http://localhost:5173/signup" className="text-gray-700 underline"> Sign up</a>.
                                 </p>
                             </div>
-                        </form>
+                        {/* </form> */}
                     </div>
                 </main>
             </div>

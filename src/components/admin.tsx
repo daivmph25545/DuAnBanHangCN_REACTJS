@@ -1,27 +1,17 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getAll, deleteId } from "../api/products"
 import { IProduct } from "../models"
 
 const Admin = () => {
     const [products, setProducts] = useState<IProduct[]>([])
 
 
-    const deleteProduct = async (_id: string) => {
-        await deleteId(_id)
-        fetchProducts()
-    }
+  
 
-
-    const fetchProducts = async () => {
-        const { data } = await getAll()
-        console.log(data);
-        
-        setProducts(data.datas)
-    }
+    
 
     useEffect(() => {
-        fetchProducts()
+     
     }, [])
 
 
@@ -184,7 +174,7 @@ const Admin = () => {
                                                     <Link to={`/admin/product/${product._id}`}>
                                                         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded" >Sửa</button>
                                                     </Link>
-                                                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-2" onClick={() => deleteProduct(product._id)}>Xoá</button>
+                                                    {/* <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-700 rounded ml-2" onClick={() => deleteProduct(product._id)}>Xoá</button> */}
                                                 </td>
 
                                             </tr>
