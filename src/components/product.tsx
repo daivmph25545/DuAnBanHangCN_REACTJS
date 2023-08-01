@@ -1,27 +1,25 @@
 import { Link } from "react-router-dom"
-import { IProduct } from "../models"
 
-type Props = {
-  data: IProduct
-}
 
-const Product = ({ data }: Props) => {
-  return <Link to={`product/${data._id}`} className="block ml-[100px] text-justify">
+
+const Product = () => {
+  return <>
+    {/* <Link to={`product/${data._id}`} className="block ml-[100px] text-justify"> */}
     <img
       alt="product-image"
-      src={data.images?.[0].base_url}
+      // src={data.images?.[0].base_url}
       className="h-[180px] w-[180px] "
     />
 
     <p className="mt-4 pr-10 text-justify font-bold text-gray-900 sm:text-base">
-      {data.name}
+      {/* {data.name} */}
     </p>
     {/* <p className="mt-2 max-w-sm text-gray-700">
       {data.description.substring(0,50)}
     </p> */}
     <div className="flex gap-4">
-      <span className="title-font font-medium text-[25px] pr-4 text-[#D70018] ">{data.price} ₫</span>
-      <span className="title-font font-medium text-[15px] line-through pt-1 text-[#707070]">{data.original_price} ₫</span>
+      {/* <span className="title-font font-medium text-[25px] pr-4 text-[#D70018] ">{data.price} ₫</span> */}
+      {/* <span className="title-font font-medium text-[15px] line-through pt-1 text-[#707070]">{data.original_price} ₫</span> */}
     </div>
     <div className="flex gap-1">
       <i className="fa-solid fa-star mt-[6px]"></i>
@@ -31,7 +29,9 @@ const Product = ({ data }: Props) => {
       <i className="fa-solid fa-star mt-[6px]"></i>
       <p className="text-[20px] text-[#707070] font-[Roboto]">72 đánh giá</p>
     </div>
-  </Link>
+  {/* </Link> */}
+  </>
+
 }
 
 export default Product
